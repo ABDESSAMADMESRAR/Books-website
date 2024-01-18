@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
+    />
+    <!--===============  link output tailwind ===============-->
+    <link href="/dist/output.css" rel="stylesheet" />
+
+    <!--===============  link  css ===============-->
+    <link rel="stylesheet" href="index.css" />
+    <!--===============  link  swiper css ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  
+  </head>
+  <title>كتابي</title>
+  <body>
+    
+    <canvas id="canvas"></canvas>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#" class="nav--logo text-teal-800 text-center">
+          <i class="ri-book-2-line text-xl"></i>كتابي
+        </a>
+
+        <div class="nav--menu">
+          <ul class="nav--list flex justify-between">
+            <li class="nav--item">
+              <a href="#الرئيسيه" class="nav--links active-link">
+                <i class="ri-home-line"></i>
+                <span>الرئيسيه</span>
+              </a>
+            </li>
+
+            <li class="nav--item">
+              <a href="#متميز" class="nav--links">
+                <i class="ri-book-3-line"></i>
+                <span>متميز</span>
+              </a>
+            </li>
+            <li class="nav--item">
+              <a href="#تخفيض" class="nav--links">
+                <i class="ri-price-tag-3-line"></i>
+                <span>تخفيض</span>
+              </a>
+            </li>
+            <li class="nav--item">
+              <a href="#كتب " class="nav--links">
+                <i class="ri-bookmark-line"></i>
+                <span>كتب جديدة</span>
+              </a>
+            </li>
+            <li class="nav--item">
+              <a href="#شهادة" class="nav--links">
+                <i class="ri-message-3-line"></i>
+                <span>شهادة</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav--actions flex items-center">
+
+          <i class="ri-search-line search-button" id="search-button"></i>
+          <i class="ri-user-line login-button" id="login-button"></i>
+
+          <i class="ri-moon-line change-theme" id="toggle-btn"></i>
+
+
+        </div>
+      </nav>
+    </header>
+
+    <!--==================== SEARCH ====================-->
+
+    <div class="search" id="search-content">
+      <form action="" class="search--form">
+        <i class="ri-search-line search--icon" style="color:#000;"></i>
+        <input
+          type="search"
+          placeholder="ما الذي تبحث عنه؟"
+          class="search--input"
+        />
+      </form>
+      <i class="ri-close-line search--close" id="search--close"></i>
+    </div>
+
+    <!--==================== LOGIN ====================-->
+    <div class="login grid" id="login-content">
+      <form action="" class="login--form grid bg-slate-200">
+        <h3 class="login--title text-2xl font-mono uppercase">log in</h3>
+        <div class="login--group grid">
+          <div>
+            <lable
+              for="login-email"
+              class="login--lable block text-slate-950 font-medium"
+              >بريد إلكتروني</lable
+            >
+            <input data-type="email"
+              type="email"
+              placeholder="بريد إلكتروني"
+              class="login--input"
+              id="login-email"
+            />
+            <span class="span-login"></span>
+          </div>
+
+          <div>
+            <lable for="" class="login--lable block text-slate-950 font-medium"
+              >كلمه المرور</lable
+            >
+            <input
+             data-type="password"
+              type="password"
+              placeholder="كلمه المرور"
+              class="login--input"
+              id="login-passworld"
+            />
+
+            <input type="checkbox" class="eye-close"> اريد ان اشاهد كلمه المرور
+            <span class="span-login"></span>
+          </div>
+          <span class="login--signup">
+            هل تملك حساب ? <a href="#">اشتراك</a>
+          </span>
+          <a href="#" class="forgot text-blue-500"> هل نسيت كلمه المرور </a>
+          <button
+            type="submit"
+            class="login--button button text-blue-500 inline-block bg-blue-500 text-slate-300 font-bold transition box-shadow .4s h-8 hover:bg-cyan-500 shadow-lg shadow-cyan-500/50"
+          >
+            تسجيل الدخول
+          </button>
+        </div>
+      </form>
+      <i
+        class="ri-close-fill login--close absolute top-5 right-5 font-bold text-xl text-gray-900 cursor-pointer hover:text-blue-600"
+        id="login--close"
+      ></i>
+    </div>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <!--==================== HOME ====================-->
+      <section class="home section" id="الرئيسيه">
+        <div class="home--container container grid">
+          <div class="home--date text-center">
+            <h1 class="home--taile">
+              تصفح<br />
+              وحده الكتب الإلكترونية
+            </h1>
+            <p class="description">
+              ابحث عن أفضل الكتب الإلكترونية من المفضلة لديك الكتاب، واستكشاف
+              مئات الكتب مع الجميع الفئات الممكنة، الاستفادة من خصم 50% وأكثر من
+              ذلك بكثير.
+            </p>
+            <button
+              class="btn animate-bounce rounded-full bg-gradient-to-r from-teal-400 to-blue-500 px-4 py-2 font-bold text-blue-900 transition-colors duration-300 hover:from-blue-400 hover:to-teal-500 hover:text-white hover:shadow-lg"
+            >
+              استكشف الآن
+            </button>
+          </div>
+          <div class="home-images">
+            <div class="home--swiper swiper">
+              <div class="swiper-wrapper">
+                <article class="home--article swiper-slide">
+                  <img
+                    src="/images/Psychology of Money.jpg"
+                    alt=""
+                    class="home--img"
+                  />
+                </article>
+                <article class="home--article swiper-slide">
+                  <img
+                    src="/images/Men are from Mars, Women are from Venus book.jpg"
+                    alt=""
+                    class="home--img"
+                  />
+                </article>
+                <article class="home--article swiper-slide">
+                  <img
+                    src="/images/The book you wish your parents had read.webp"
+                    alt=""
+                    class="home--img"
+                  />
+                </article>
+                <article class="home--article swiper-slide">
+                  <img
+                    src="/images/power.jpg"
+                    alt=""
+                    class="home--img"
+                  />
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== SERVICES ====================-->
+      <section class="services section">
+        <div class="services--container container grid">
+          <article class="services--card text-center">
+            <i class="ri-truck-fill text-blue-400 mb-5"></i>
+            <h3 class="services-title">ًالشحن مجانا</h3>
+            <p class="services-description">اطلب أكثر من 100 دولار</p>
+          </article>
+          <article class="services--card text-center">
+            <i class="ri-lock-2-line text-blue-400 mb-5"></i>
+            <h3 class="services-title">دفع امن</h3>
+            <p class="services-description">دفع آمن بنسبة 100%</p>
+          </article>
+          <article class="services--card text-center">
+            <i class="ri-customer-service-2-fill text-blue-400 mb-5"></i>
+            <h3 class="services-title">دعم 24/7</h3>
+            <p class="services-description">اتصل بنا في أي وقت</p>
+          </article>
+        </div>
+      </section>
+
+      <!--==================== FEATURED ====================-->
+      <section class="featured section" id="متميز">
+        <h2
+          class="section-title text-center"
+          style="font-size: 3rem; margin-bottom: 2rem"
+        >
+          كتب مميزة
+        </h2>
+        <div class="featured-container container">
+          <div class="featured-swiper swiper">
+            <div class="swiper-wrapper">
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/The power of habits book.png"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">كتاب قوة العادات</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class=" btn-primary px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/The book you wish your parents had read.webp"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">الكتاب الذي تتمنى لو قرأه والديك</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class=" btn-primary px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/كتاب فن اللامبالاه.jpg"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">كتاب فن اللامبالاه</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class="px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/Psychology of Money.jpg"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">كتاب مميز</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class="px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/رواية الخيميائي.jpg"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">رواية الخيميائي</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class="px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/التأملات.png.webp"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">التأملات</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class="px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/كتاب العادات الذرية.webp"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">كتاب العادات الذرية</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class="px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/كتاب فاتتني صلاة.webp"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">كتاب فاتتني صلاة</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class="px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/كتاب قوة عقلك الباطن.webp"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">كتاب قوة عقلك الباطن</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class="px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+              <article
+                class="featured-card relative text-center overflow-hidden swiper-slide"
+              >
+                <img
+                  src="/images/كتاب مدرسة محمد.webp"
+                  alt=""
+                  class="featured-red"
+                />
+                <h2 class="featured-title">كتاب مدرسة محمد</h2>
+                <div class="featured-pixs">
+                  <span class="featured-discount">$11.99</span>
+                  <span class="featured-r">$19.99</span>
+                </div>
+                <button
+                  class="px-8 z-30 py-4 bg-rose-400 rounded-md text-white relative font-semibold font-sans after:-z-20 after:absolute after:h-1 after:w-1 after:bg-rose-800 after:left-5 overflow-hidden after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700 transition-all duration-700 [text-shadow:3px_5px_2px_#be123c;] hover:[text-shadow:2px_2px_2px_#fda4af] text-2xl"
+                >
+                  تسوق الآن
+                </button>
+
+                <div class="featured-actions">
+                  <button><i class="ri-search-line"></i></button>
+                  <button><i class="ri-heart-line"></i></button>
+                  <button><i class="ri-eye-line"></i></button>
+                </div>
+              </article>
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== DISCOUNT ====================-->
+      <section class="discount section" id="تخفيض">
+        <div class="discount-container container grid">
+          <div class="discount-date text-center">
+            <h2 class="discount-title section-title">خصم يصل إلى 50%</h2>
+            <p class="discount__description">
+              استفد من أيام الخصم التي نقدمها لديك، وشراء الكتب من المفضلة لديك
+              الكتاب، كلما اشتريت أكثر، كلما زادت الخصومات لدينا بالنسبة لك.
+            </p>
+            <button
+              class="cursor-pointer transition-all bg-gray-700 text-white px-6 py-2 rounded-lg border-green-400 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none"
+            >
+              تسوق الآن
+            </button>
+          </div>
+          <div class="discount-images">
+            <img
+              src="/images/discount-book-1.png"
+              alt=""
+              class="discount-img1"
+            />
+            <img
+              src="/images/discount-book-2.png"
+              alt=""
+              class="discount-img2"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!--==================== NEW BOOKS ====================-->
+      <section class="new section" id="كتب">
+        <h2 class="section-title">كتب جديدة</h2>
+        <div class="new-container container">
+          <div class="new-swiper swiper">
+            <div class="swiper-wrapper">
+              <a href="" class="new-card swiper-slide">
+                <img src="/images/eff.jpg" alt="" class="new-img" />
+                <div>
+                  <h2 class="title-new">
+                    الأب الغنى والأب الفقير</h2>
+                  <div class="new-prices r">
+                    <span class="new-discount">$7.99</span>
+                    <span class="new-price">$14.99</span>
+                  </div>
+
+                  <div class="new-stars text-blue-400">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                  </div>
+                </div>
+              </a>
+              <a href="" class="new-card swiper-slide">
+                <img src="/images/كفاحي.jpg" alt="" class="new-img" />
+                <div>
+                  <h2 class="title-new">كفاحي</h2>
+                  <div class="new-prices">
+                    <span class="new-discount">$7.99</span>
+                    <span class="new-price">$14.99</span>
+                  </div>
+
+                  <div class="new-stars text-blue-400">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                  </div>
+                </div>
+              </a>
+              <a href="" class="new-card swiper-slide">
+                <img src="/images/المحاكمة.jpg" alt="" class="new-img" />
+                <div>
+                  <h2 class="title-new">المحاكمة</h2>
+                  <div class="new-prices">
+                    <span class="new-discount">$7.99</span>
+                    <span class="new-price">$14.99</span>
+                  </div>
+
+                  <div class="new-stars text-blue-400">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                  </div>
+                </div>
+              </a>
+              <a href="" class="new-card swiper-slide">
+                <img src="/images/الغريب.jpg" alt="" class="new-img" />
+                <div>
+                  <h2 class="title-new">الغريب</h2>
+                  <div class="new-prices text-blue-400">
+                    <span class="new-discount">$7.99</span>
+                    <span class="new-price">$14.99</span>
+                  </div>
+
+                  <div class="new-stars text-blue-400">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                  </div>
+                </div>
+              </a>
+            
+              <a href="" class="new-card swiper-slide">
+                <img src="/images/power.jpg" alt="" class="new-img" />
+                <div>
+                  <h2 class="title-new">power</h2>
+                  <div class="new-prices">
+                    <span class="new-discount">$7.99</span>
+                    <span class="new-price">$14.99</span>
+                  </div>
+
+                  <div class="new-stars text-blue-400">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                  </div>
+                </div>
+              </a>
+        
+            
+            
+              <a href="" class="new-card swiper-slide">
+                <img src="/images/كتاب قوة عقلك الباطن.webp" alt="" class="new-img" />
+                <div>
+                  <h2 class="title-new">كتاب قوة عقلك الباطن</h2>
+                  <div class="new-prices">
+                    <span class="new-discount">$7.99</span>
+                    <span class="new-price">$14.99</span>
+                  </div>
+
+                  <div class="new-stars text-blue-400">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== JOIN ====================-->
+      <section class="join section">
+        <div class="join-container">
+          <img src="/images/join-bg.jpg" alt="" class="join-bg" />
+          <div class="join-date container grid relative">
+            <h2
+              class="join-tille section-tille text-white text-center"
+              style="font-size: 2rem"
+            >
+              اشترك لتلقي <br />
+              آخر التحديثات
+            </h2>
+            <form action="  " class="join-form">
+              <input
+                type="email"
+                placeholder="البريد الالكتروني"
+                class="join-input"
+              />
+              <button
+                type="submit"
+                class="button bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce"
+              >
+                يشترك
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== TESTIMONIAL ====================-->
+      <section class="testimonial section" id="شهادة">
+        <h2 class="section-title">آراء العملاء</h2>
+        <div class="testimoial-container container">
+          <div class="testimoial-swiper swiper">
+            <div class="swiper-wrapper">
+              <article class="testimoial-card swiper-slide">
+                <img
+                  src="/images/testimonial-perfil-1.png"
+                  alt=""
+                  class="testimoial-img"
+                />
+                <h2 class="testimonial-title">Rial Loz</h2>
+                <p class="testimonial__description">
+                  أفضل موقع لشراء الكتب، الشراء من السهل جدًا صنعه وله خصومات
+                  كبيرة.
+                </p>
+                <div class="testimonial-stars text-blue-400">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+                </div>
+              </article>
+
+              <article class="testimoial-card swiper-slide">
+                <img
+                  src="/images/testimonial-perfil-2.png"
+                  alt=""
+                  class="testimoial-img"
+                />
+                <h2 class="testimonial-title">Rial Loz</h2>
+                <p class="testimonial__description">
+                  أفضل موقع لشراء الكتب، الشراء من السهل جدًا صنعه وله خصومات
+                  كبيرة.
+                </p>
+                <div class="testimonial-stars text-blue-400">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+                </div>
+              </article>
+
+              <article class="testimoial-card swiper-slide">
+                <img
+                  src="/images/testimonial-perfil-3.png"
+                  alt=""
+                  class="testimoial-img"
+                />
+                <h2 class="testimonial-title">Rial Loz</h2>
+                <p class="testimonial__description">
+                  أفضل موقع لشراء الكتب، الشراء من السهل جدًا صنعه وله خصومات
+                  كبيرة.
+                </p>
+                <div class="testimonial-stars text-blue-400">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+                </div>
+              </article>
+
+              <article class="testimoial-card swiper-slide">
+                <img
+                  src="/images/testimonial-perfil-4.png"
+                  alt=""
+                  class="testimoial-img"
+                />
+                <h2 class="testimonial-title">Rial Loz</h2>
+                <p class="testimonial__description">
+                  أفضل موقع لشراء الكتب، الشراء من السهل جدًا صنعه وله خصومات
+                  كبيرة.
+                </p>
+                <div class="testimonial-stars text-blue-400">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+      <div class="footer-container">
+        <a href="" class="footer-log">
+          <i class="ri-book-2-line text-xl"></i>كتابي
+        </a>
+        <p class="footer-description">
+          ابحث عن أفضل <br />
+          واستكشفه كتب إلكترونية من كل ما تبذلونه من <br />
+          الكتاب المفضلين.
+        </p>
+      </div>
+
+      <div class="footer-date grid">
+        <div>
+          <h3 class="footer-title">عن</h3>
+
+          <ul class="footer-links">
+            <li>
+              <a href="" class="footer-link">الجوائز</a>
+            </li>
+            <li>
+              <a href="" class="footer-link">الأسئلة الشائعة</a>
+            </li>
+            <li>
+              <a href="" class="footer-link">سياسة الخصوصية</a>
+            </li>
+            <li>
+              <a href="" class="footer-link">شروط الخدمة</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">شركة</h3>
+
+          <ul class="footer-links">
+            <li>
+              <a href="" class="footer-link">المدونات</a>
+            </li>
+            <li>
+              <a href="" class="footer-link">مجتمع</a>
+            </li>
+            <li>
+              <a href="" class="footer-link">فريقنا</a>
+            </li>
+            <li>
+              <a href="" class="footer-link">مركز المساعدة</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">اتصال</h3>
+
+          <ul class="footer-links">
+            <li>
+              <address class="footer-info font-normal">
+                شارع. هاسيندا <br />
+                آسفي 4321، المغرب
+              </address>
+            </li>
+
+            <li>
+              <address class="footer-info font-normal">
+                e.book@email.com <br />
+                0987-654-321
+              </address>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title">وسائل التواصل الاجتماعي</h3>
+
+          <div
+            class="footer-Social flex text-blue-400"
+            style="column-gap: 1.25rem"
+          >
+            <a
+              href=" https://www.facebook.com/"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-facebook-fill"></i>
+            </a>
+
+            <a
+              href=" https://www.instagram.com/"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-instagram-line"></i>
+            </a>
+
+            <a
+              href=" https://twitter.com/"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-twitter-fill"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+<a href="#" class="srcollup" id="srcoll-up">
+  <i  class="ri-arrow-up-line"> <br> <i style="font-size: 20px;  ">top</i></i><br></i>
+</a>
+
+
+
+
+
+  <!--=============== javascript JS ===============-->
+  <script  defer src="index.js"></script>
+    <!--=============== SCROLLREVEAL ===============-->
+    <script  src="/dist/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+      
+
+  </body>
+</html>
