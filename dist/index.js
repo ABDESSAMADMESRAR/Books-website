@@ -405,3 +405,18 @@ class Snow2 {
 
 window.addEventListener("DOMContentLoaded", init);
 window.addEventListener("resize", resizeReset);
+/*=============== loader-container ===============*/
+// const loader=  document.querySelector('.loader-container').classList.add('active');
+// const fedeout = (params) => {
+//   setTimeout(loader,3000)
+// }
+
+const loader=  document.querySelector('.loader-container');
+
+// function fedeout() {
+// setTimeout(loader,1000);
+// }
+setTimeout(() => {
+  loader.remove();
+}, 4000);
+
